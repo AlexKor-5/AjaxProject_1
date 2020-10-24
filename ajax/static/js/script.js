@@ -8,7 +8,7 @@ let init = () => {
         btnSub.onclick = (event) => {
             event.preventDefault();
 
-            let url = `test.py`;
+            let url = `test/`;
             let xhttp = new XMLHttpRequest();
             
 
@@ -28,6 +28,7 @@ let init = () => {
           
             xhttp.open(`POST`, url, true);
             xhttp.setRequestHeader(`Content-type`,`application/json`);
+            xhttp.setRequestHeader(`X-CSRFToken`,`ahqfcbzMo48WJKcZLFLTyUmELeg2dkSQ`);
             xhttp.responseType = `json`;
             xhttp.send(JSON.stringify(data));
         }
