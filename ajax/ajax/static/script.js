@@ -8,7 +8,7 @@ let init = () => {
         btnSub.onclick = (event) => {
             event.preventDefault();
 
-            let url = `test/`;
+            let url = `test.py`;
             let xhttp = new XMLHttpRequest();
             
 
