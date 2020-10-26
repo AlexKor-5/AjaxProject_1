@@ -8,7 +8,6 @@ def base(request):
 # @require_POST 
 def test(request):
 	if request.method == 'POST':
-		json_string = request.POST['data']
 		if request.is_ajax():
 			return JsonResponse("Success")
 		else:
