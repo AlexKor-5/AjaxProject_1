@@ -25,12 +25,11 @@ let init = () => {
                 }
             }
             xhttp.onload = () => {
-                console.log(JSON.parse(xhttp.response));
+               console.log(JSON.parse(xhttp.response));
             }
 
             xhttp.open(`POST`, url, true);
-            xhttp.setRequestHeader(`Content-type`, `application/json`);
-          
+
             xhttp.setRequestHeader(`X-CSRFToken`,token);
             xhttp.responseType = `json`;
            
