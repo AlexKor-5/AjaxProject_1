@@ -5,7 +5,9 @@ let init = () => {
         let name = document.getElementById(`name`);
         let surname = document.getElementById(`surname`);
         let form = document.getElementById(`special`);
+        let taker = document.getElementById(`taker`);
         let token = form.elements.csrfmiddlewaretoken.value;
+        takenObject = {};
 
         btnSub.onclick = (event) => {
             event.preventDefault();
@@ -19,22 +21,24 @@ let init = () => {
                 surname: surname.value
             }
 
+            xhttp.onload = () => {
+                let gottendObject = xhttp.response;
+                console.log(gottendObject);
+                takenObject = gottendObject;
+                taker.innerHTML = `Hello: <b>${takenObject.name} ${takenObject.surname}</b>`;
+            }
+
             xhttp.onreadystatechange = () => {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     alert(`Sucsess !`);
                 }
             }
-            xhttp.onload = () => {
-               console.log(JSON.parse(xhttp.response));
-            }
 
             xhttp.open(`POST`, url, true);
-
-            xhttp.setRequestHeader(`X-CSRFToken`,token);
+            xhttp.setRequestHeader(`X-CSRFToken`, token);
             xhttp.responseType = `json`;
-           
             xhttp.send(JSON.stringify(data));
-          
+
         }
 
     })();

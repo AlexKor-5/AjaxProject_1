@@ -31,12 +31,17 @@
 
                 <section>
                     <form id="special">
-                        <p>Name: <input type="text" id="name" name="myform1" value="some name"></p>
-                        <p>Lastname: <input type="text" id="surname" name="myform1" value="some value"></p>
+                        <p>Name: <input type="text" id="name" name="myform1" value=""></p>
+                        <p>Lastname: <input type="text" id="surname" name="myform1" value=""></p>
                         {% csrf_token %}
                         <input type="submit" value="send" id="btn-Submit">
                         
                     </form>
+                </section>
+                <section>
+                    <div id="taker">
+
+                    </div>
                 </section>
             </div>
         </div>

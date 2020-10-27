@@ -9,10 +9,8 @@ def base(request):
 @require_POST 
 def test(request):
 	received_json_data=json.loads(request.body)
-	received_json_data['name'] = 'other name'
-	received_json_data['surname'] = 'other surname'
-	response_data = json.dumps(received_json_data)
-			
+	received_json_data['name'] = received_json_data['name']+' '+'Server'
+	received_json_data['surname'] = received_json_data['surname']+' '+'Server'
+	response_data = json.dumps(received_json_data)		
 	response = JsonResponse(received_json_data)
-	
 	return response
